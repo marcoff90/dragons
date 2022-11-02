@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dragons/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@dragons/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@dragons/util-logger": ["libs/util-logger/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
