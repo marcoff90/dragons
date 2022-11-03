@@ -1,0 +1,442 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Query tests Classes query 1`] = `
+Object {
+  "data": Object {
+    "classes": Array [
+      Object {
+        "id": 1,
+        "image": "http://localhost:3333/assets/dragon-classes/strike.png",
+        "name": "Strike",
+      },
+      Object {
+        "id": 2,
+        "image": "http://localhost:3333/assets/dragon-classes/boulder.png",
+        "name": "Boulder",
+      },
+      Object {
+        "id": 3,
+        "image": "http://localhost:3333/assets/dragon-classes/mystery.png",
+        "name": "Mystery",
+      },
+      Object {
+        "id": 4,
+        "image": "http://localhost:3333/assets/dragon-classes/sharp.jpg",
+        "name": "Sharp",
+      },
+      Object {
+        "id": 5,
+        "image": "http://localhost:3333/assets/dragon-classes/tidal.png",
+        "name": "Tidal",
+      },
+      Object {
+        "id": 6,
+        "image": "http://localhost:3333/assets/dragon-classes/tracker.png",
+        "name": "Tracker",
+      },
+      Object {
+        "id": 7,
+        "image": "http://localhost:3333/assets/dragon-classes/stoker.png",
+        "name": "Stoker",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Distinct heads returns values for filters 1`] = `
+Object {
+  "data": Object {
+    "distinctHeads": Object {
+      "heads": Array [
+        4,
+        1,
+        2,
+      ],
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Dragon query with name param 1`] = `
+Object {
+  "data": Object {
+    "dragon": Object {
+      "id": 1,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Dragon query with no no name in db returns Error 1`] = `
+Object {
+  "data": Object {
+    "dragon": null,
+  },
+  "errors": Array [
+    Object {
+      "message": "HelloWorld not found",
+    },
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Dragon query with no param returns Error 1`] = `
+Object {
+  "data": undefined,
+  "errors": Array [
+    Object {
+      "message": "Field \\"dragon\\" argument \\"input\\" of type \\"OneDragon!\\" is required, but it was not provided.",
+    },
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Dragons query no params 1`] = `
+Object {
+  "data": Object {
+    "dragons": Array [
+      Object {
+        "id": 1,
+        "name": "Toothless",
+      },
+      Object {
+        "id": 2,
+        "name": "Stormfly",
+      },
+      Object {
+        "id": 3,
+        "name": "Barf & Belch",
+      },
+      Object {
+        "id": 4,
+        "name": "Grump",
+      },
+      Object {
+        "id": 5,
+        "name": "HookFang",
+      },
+      Object {
+        "id": 6,
+        "name": "Light Fury",
+      },
+      Object {
+        "id": 7,
+        "name": "Meatlug",
+      },
+      Object {
+        "id": 8,
+        "name": "CloudJumper",
+      },
+      Object {
+        "id": 9,
+        "name": "SkullCrusher",
+      },
+      Object {
+        "id": 10,
+        "name": "ArmorWing",
+      },
+      Object {
+        "id": 11,
+        "name": "Eruptodon",
+      },
+      Object {
+        "id": 12,
+        "name": "Night Terror",
+      },
+      Object {
+        "id": 13,
+        "name": "SeaShocker",
+      },
+      Object {
+        "id": 14,
+        "name": "Skrill",
+      },
+      Object {
+        "id": 15,
+        "name": "SnapTrapper",
+      },
+      Object {
+        "id": 16,
+        "name": "Terrible Terror",
+      },
+      Object {
+        "id": 17,
+        "name": "ThunderDrum",
+      },
+      Object {
+        "id": 18,
+        "name": "TimberJack",
+      },
+      Object {
+        "id": 19,
+        "name": "Whispering Death",
+      },
+      Object {
+        "id": 20,
+        "name": "Baby Gronckle",
+      },
+      Object {
+        "id": 21,
+        "name": "Baby Nadder",
+      },
+      Object {
+        "id": 22,
+        "name": "Baby Nightmare",
+      },
+      Object {
+        "id": 23,
+        "name": "Baby Zippleback",
+      },
+      Object {
+        "id": 24,
+        "name": "Drago's BeWilderBeast",
+      },
+      Object {
+        "id": 25,
+        "name": "Valka's BeWilderBeast",
+      },
+      Object {
+        "id": 26,
+        "name": "Death Song",
+      },
+      Object {
+        "id": 27,
+        "name": "Dramillion",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Dragons query with class and species 1`] = `
+Object {
+  "data": undefined,
+  "errors": Array [
+    Object {
+      "message": "Field \\"class\\" of type \\"Class!\\" must have a selection of subfields. Did you mean \\"class { ... }\\"?",
+    },
+    Object {
+      "message": "Field \\"species\\" of type \\"Species!\\" must have a selection of subfields. Did you mean \\"species { ... }\\"?",
+    },
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Dragons query with params 1`] = `
+Object {
+  "data": Object {
+    "dragons": Array [
+      Object {
+        "id": 1,
+        "name": "Toothless",
+      },
+      Object {
+        "id": 2,
+        "name": "Stormfly",
+      },
+      Object {
+        "id": 3,
+        "name": "Barf & Belch",
+      },
+      Object {
+        "id": 4,
+        "name": "Grump",
+      },
+      Object {
+        "id": 5,
+        "name": "HookFang",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Species query 1`] = `
+Object {
+  "data": Object {
+    "species": Array [
+      Object {
+        "id": 1,
+        "species": "Night Fury",
+      },
+      Object {
+        "id": 2,
+        "species": "Deadly Nadder",
+      },
+      Object {
+        "id": 3,
+        "species": "Hideous Zippleback",
+      },
+      Object {
+        "id": 4,
+        "species": "HotBurple",
+      },
+      Object {
+        "id": 5,
+        "species": "Monstrous nightmare",
+      },
+      Object {
+        "id": 6,
+        "species": "Light Fury",
+      },
+      Object {
+        "id": 7,
+        "species": "Gronckle",
+      },
+      Object {
+        "id": 8,
+        "species": "StormCuter",
+      },
+      Object {
+        "id": 9,
+        "species": "RumbleHorn",
+      },
+      Object {
+        "id": 10,
+        "species": "ArmorWing",
+      },
+      Object {
+        "id": 11,
+        "species": "Eruptodon",
+      },
+      Object {
+        "id": 12,
+        "species": "Night Terror",
+      },
+      Object {
+        "id": 13,
+        "species": "SeaShocker Terror",
+      },
+      Object {
+        "id": 14,
+        "species": "Skrill",
+      },
+      Object {
+        "id": 15,
+        "species": "SnapTrapper",
+      },
+      Object {
+        "id": 16,
+        "species": "Terrible Terror",
+      },
+      Object {
+        "id": 17,
+        "species": "ThunderDrum",
+      },
+      Object {
+        "id": 18,
+        "species": "TimberJack",
+      },
+      Object {
+        "id": 19,
+        "species": "Whispering Death",
+      },
+      Object {
+        "id": 20,
+        "species": "BeWilderBeast",
+      },
+      Object {
+        "id": 21,
+        "species": "Death Song",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Query tests Teams query 1`] = `
+Object {
+  "data": Object {
+    "teams": Array [
+      Object {
+        "id": 1,
+        "image": "http://localhost:3333/assets/teams/barf_and_belch_dragon-team.png",
+      },
+      Object {
+        "id": 2,
+        "image": "http://localhost:3333/assets/teams/hookfang_dragon-team.png",
+      },
+      Object {
+        "id": 3,
+        "image": "http://localhost:3333/assets/teams/meatlug_dragon-team.png",
+      },
+      Object {
+        "id": 4,
+        "image": "http://localhost:3333/assets/teams/stormfly_dragon-team",
+      },
+      Object {
+        "id": 5,
+        "image": "http://localhost:3333/assets/teams/toothles_dragon-team.png",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

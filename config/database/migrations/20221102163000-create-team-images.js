@@ -1,8 +1,8 @@
 'use strict';
 const Sequelize = require('sequelize');
-const {DataTypes, DATE} = require('sequelize');
+const { DataTypes, DATE } = require('sequelize');
 
-module.exports =  {
+module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('team_images', {
       id: {
@@ -14,12 +14,12 @@ module.exports =  {
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
   },
 
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('team_images');
-  }
+  },
 };
