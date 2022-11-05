@@ -11,5 +11,7 @@ export const syncSequelize = async () => {
   SpeciesModel.hasMany(DragonModel, {
     foreignKey: 'species_id',
   });
+  DragonModel.belongsTo(ClassModel);
+  DragonModel.belongsTo(SpeciesModel);
   await sequelize.sync();
 };

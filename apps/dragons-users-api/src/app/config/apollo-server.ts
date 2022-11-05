@@ -1,7 +1,6 @@
 import { buildSubgraphSchema } from '@apollo/subgraph';
 import { ApolloServer } from 'apollo-server-express';
 import { userSchema } from '../schemas/user-schema';
-import { querySchema } from '../schemas/query-schema';
 import { mutationSchema } from '../schemas/mutation-schema';
 import logger from '@dragons/util-logger';
 import UserService from '../services/user-service';
@@ -12,9 +11,6 @@ export const server = new ApolloServer({
     {
       typeDefs: userSchema,
       resolvers: userResolver,
-    },
-    {
-      typeDefs: querySchema,
     },
     {
       typeDefs: mutationSchema,

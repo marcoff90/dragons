@@ -5,6 +5,13 @@ const { DataTypes, DATE } = require('sequelize');
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('order_item', {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+        unique: true,
+      },
       orderId: {
         type: DataTypes.INTEGER,
         allowNull: false,

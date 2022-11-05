@@ -26,6 +26,7 @@ export interface DragonI
   profileImg: string;
   mainImg: string;
   heightImg: string | null;
+  price: number;
   classId: number;
   speciesId: number;
 }
@@ -69,3 +70,23 @@ export type UserResponseI = {
   email: string;
   token?: string;
 };
+
+export interface OrderI
+  extends Model<InferAttributes<OrderI>, InferCreationAttributes<OrderI>> {
+  id: number;
+  userId: number;
+  totalPrice: number;
+  createdAt: number;
+}
+
+export interface OrderItemI
+  extends Model<
+    InferAttributes<OrderItemI>,
+    InferCreationAttributes<OrderItemI>
+  > {
+  id: number;
+  orderId: number;
+  dragonId: number;
+  amount: number;
+  itemPrice?: number;
+}

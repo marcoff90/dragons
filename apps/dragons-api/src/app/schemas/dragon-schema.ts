@@ -21,6 +21,7 @@ export const dragonSchema = gql(`
     profileImg: String!
     mainImg: String!
     heightImg: String
+    price: Float!
     class: Class!
     species: Species!
   }

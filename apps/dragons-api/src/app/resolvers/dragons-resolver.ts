@@ -37,5 +37,8 @@ export const dragonsResolver = {
 
       return dragon.species;
     },
+    __resolveReference: async (ref, { DragonRepository }) => {
+      return await DragonRepository.findById(ref.id);
+    },
   },
 };

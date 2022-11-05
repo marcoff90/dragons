@@ -31,8 +31,18 @@ const getDistinctHeadsProperty = async (): Promise<DragonI[]> => {
   });
 };
 
+const findById = async (id: number) => {
+  return await DragonModel.findOne({
+    where: {
+      id,
+    },
+    include: [ClassModel, SpeciesModel],
+  });
+};
+
 export default {
   findDragonsDynamically,
   findOneByName,
   getDistinctHeadsProperty,
+  findById,
 };

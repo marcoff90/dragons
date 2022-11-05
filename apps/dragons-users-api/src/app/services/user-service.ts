@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs';
 import UserRepository from '../repositories/user-repository';
 import logger from '@dragons/util-logger';
 import generateToken from '../utils/jwt-util';
-import { validateSchema } from '@nrwl/workspace/src/generators/convert-to-nx-project/convert-to-nx-project';
 import { validateUserInput } from '../utils/user-validation';
 
 /**

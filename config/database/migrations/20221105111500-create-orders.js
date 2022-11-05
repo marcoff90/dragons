@@ -22,6 +22,12 @@ module.exports = {
         allowNull: false,
         field: 'total_price',
       },
+      createdAt: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+        defaultValue: Math.floor(Date.now() / 1000),
+        field: 'created_at',
+      },
     });
   },
 

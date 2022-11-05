@@ -1,8 +1,6 @@
 import sequelize from '../config/sequelize-config';
 import { DragonI } from '@dragons/api-interfaces';
 import { DataTypes } from 'sequelize';
-import ClassModel from './class-model';
-import SpeciesModel from './species-model';
 
 const DragonModel = sequelize.define<DragonI>(
   'dragon',
@@ -85,6 +83,13 @@ const DragonModel = sequelize.define<DragonI>(
       defaultValue: null,
       field: 'height_image',
     },
+    price: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: (
+        Math.floor(Math.random() * (100000 - 50000 + 1)) + 50000
+      ).toFixed(2),
+    },
     classId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -116,8 +121,5 @@ const DragonModel = sequelize.define<DragonI>(
     tableName: 'dragon',
   }
 );
-
-DragonModel.belongsTo(ClassModel);
-DragonModel.belongsTo(SpeciesModel);
 
 export default DragonModel;
