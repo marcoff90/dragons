@@ -5,4 +5,4 @@ export const speciesSchema = gql(`
     id: Int!
     species: String!
   }
-    `);
+`);

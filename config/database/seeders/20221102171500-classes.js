@@ -33,10 +33,10 @@ module.exports = {
       },
     ];
 
-    await queryInterface.bulkInsert('classes', classes, {});
+    await queryInterface.bulkInsert('class', classes, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('classes', null, {});
+    await queryInterface.bulkDelete('class', null, {});
   },
 };

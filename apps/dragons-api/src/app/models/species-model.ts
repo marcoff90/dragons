@@ -18,7 +18,7 @@ const SpeciesModel = sequelize.define<SpeciesI>(
       unique: true,
     },
   },
-  { timestamps: false }
+  { timestamps: false, tableName: 'species' }
 );
 
 export default SpeciesModel;

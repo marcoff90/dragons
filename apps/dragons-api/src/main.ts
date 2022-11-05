@@ -1,5 +1,4 @@
 import express, { Express } from 'express';
-import cors from 'cors';
 import logger from '@dragons/util-logger';
 import path from 'path';
 import { syncSequelize } from './app/config/sequelize-sync';
@@ -8,9 +7,6 @@ import { server } from './app/config/apollo-server';
 const app: Express = express();
 const port = process.env.port || 3333;
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 (async () => {

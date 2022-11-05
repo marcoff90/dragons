@@ -6,4 +6,4 @@ export const classSchema = gql(`
     name: String!
     image: String!
   }
-    `);
+`);

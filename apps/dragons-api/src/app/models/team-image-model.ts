@@ -17,7 +17,7 @@ const TeamImageModel = sequelize.define<TeamsImageI>(
       allowNull: false,
     },
   },
-  { timestamps: false }
+  { timestamps: false, tableName: 'team_image' }
 );
 
 export default TeamImageModel;

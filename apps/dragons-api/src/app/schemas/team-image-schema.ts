@@ -5,4 +5,4 @@ export const teamSchema = gql(`
     id: Int!
     image: String!
   }
-    `);
+`);

@@ -21,10 +21,10 @@ module.exports = {
       },
     ];
 
-    await queryInterface.bulkInsert('team_images', teams, {});
+    await queryInterface.bulkInsert('team_image', teams, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('team_images', null, {});
+    await queryInterface.bulkDelete('team_image', null, {});
   },
 };

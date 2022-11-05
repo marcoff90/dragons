@@ -55,3 +55,17 @@ export type LimitOffset = {
   limit?: number;
   offset?: number;
 };
+
+export interface UserI
+  extends Model<InferAttributes<UserI>, InferCreationAttributes<UserI>> {
+  id: number;
+  email: string;
+  password: string;
+  passwordConfirmation?: string;
+}
+
+export type UserResponseI = {
+  id: number;
+  email: string;
+  token?: string;
+};

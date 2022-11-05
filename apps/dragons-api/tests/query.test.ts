@@ -1,10 +1,12 @@
 import { gql } from 'apollo-server-express';
-import { createTestClient } from 'apollo-server-testing';
 import { server } from '../src/app/config/apollo-server';
 
-describe('Query tests', () => {
-  const testClient = createTestClient(server);
+/**
+ * Dragons api is read only -> we can use the real server for testing without mocking
+ * and overwriting any values in db
+ */
 
+describe('Query tests', () => {
   test('Dragons query no params', async () => {
     const DragonsQuery = gql(`
       {
@@ -14,8 +16,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: DragonsQuery });
+    const res = await server.executeOperation({ query: DragonsQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -30,8 +31,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: DragonsQuery });
+    const res = await server.executeOperation({ query: DragonsQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -44,8 +44,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: DragonsQuery });
+    const res = await server.executeOperation({ query: DragonsQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -57,8 +56,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: DragonQuery });
+    const res = await server.executeOperation({ query: DragonQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -70,8 +68,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: DragonQuery });
+    const res = await server.executeOperation({ query: DragonQuery });
     expect(res).toMatchSnapshot();
     expect(res.errors[0].message).toEqual(
       'Field "dragon" argument "input" of type "OneDragon!" is required, but it was not provided.'
@@ -86,8 +83,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: DragonQuery });
+    const res = await server.executeOperation({ query: DragonQuery });
     expect(res).toMatchSnapshot();
     expect(res.errors[0].message).toEqual('HelloWorld not found');
   });
@@ -100,8 +96,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: HeadQuery });
+    const res = await server.executeOperation({ query: HeadQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -114,8 +109,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: TeamsQuery });
+    const res = await server.executeOperation({ query: TeamsQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -129,8 +123,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: ClassesQuery });
+    const res = await server.executeOperation({ query: ClassesQuery });
     expect(res).toMatchSnapshot();
   });
 
@@ -143,8 +136,7 @@ describe('Query tests', () => {
         }
       }
     `);
-    const { query } = testClient;
-    const res = await query({ query: SpeciesQuery });
+    const res = await server.executeOperation({ query: SpeciesQuery });
     expect(res).toMatchSnapshot();
   });
 });

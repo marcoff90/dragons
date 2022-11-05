@@ -13,10 +13,30 @@ import ClassRepository from '../repositories/class-repository';
 import DragonRepository from '../repositories/dragon-repository';
 import SpeciesRepository from '../repositories/species-repository';
 import TeamImageRepository from '../repositories/team-image-repository';
+import { buildSubgraphSchema } from '@apollo/subgraph';
 
 export const server = new ApolloServer({
-  typeDefs: [dragonSchema, classSchema, speciesSchema, teamSchema, querySchema],
-  resolvers: [dragonsResolver, teamsResolver, classesResolver, speciesResolver],
+  schema: buildSubgraphSchema([
+    {
+      typeDefs: dragonSchema,
+      resolvers: dragonsResolver,
+    },
+    {
+      typeDefs: classSchema,
+      resolvers: classesResolver,
+    },
+    {
+      typeDefs: speciesSchema,
+      resolvers: speciesResolver,
+    },
+    {
+      typeDefs: teamSchema,
+      resolvers: teamsResolver,
+    },
+    {
+      typeDefs: querySchema,
+    },
+  ]),
   formatError: (error) => {
     logger.error(error);
     return new Error(error.message);

@@ -1,7 +1,9 @@
 import { gql } from 'apollo-server-express';
 
 export const dragonSchema = gql(`
-  type Dragon {
+  extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"])
+
+  type Dragon @key(fields: "id") {
     id: Int!
     name: String!
     heads: Int!
@@ -21,21 +23,6 @@ export const dragonSchema = gql(`
     heightImg: String
     class: Class!
     species: Species!
-  }
-
-  input DragonInput {
-    heads: Int
-    classId: Int
-    speciesId: Int
-  }
-
-  input LimitOffset {
-    limit: Int
-    offset: Int
-  }
-
-  input OneDragon {
-    name: String!
   }
 
   type Count {

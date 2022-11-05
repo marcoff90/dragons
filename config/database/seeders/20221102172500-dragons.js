@@ -697,10 +697,10 @@ module.exports = {
       },
     ];
 
-    await queryInterface.bulkInsert('dragons', dragons, {});
+    await queryInterface.bulkInsert('dragon', dragons, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('dragons', null, {});
+    await queryInterface.bulkDelete('dragon', null, {});
   },
 };

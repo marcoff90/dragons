@@ -22,7 +22,7 @@ const ClassModel = sequelize.define<ClassI>(
       allowNull: false,
     },
   },
-  { timestamps: false }
+  { timestamps: false, tableName: 'class' }
 );
 
 export default ClassModel;

@@ -1,11 +1,16 @@
 import { Dialect, Sequelize } from 'sequelize';
 import 'dotenv/config';
 
-const { RDS_DB_NAME, RDS_USERNAME, RDS_PASSWORD, RDS_HOSTNAME, DIALECT } =
-  process.env;
+const {
+  RDS_DB_NAME_DRAGON_API,
+  RDS_USERNAME,
+  RDS_PASSWORD,
+  RDS_HOSTNAME,
+  DIALECT,
+} = process.env;
 
 const sequelize: Sequelize = new Sequelize(
-  RDS_DB_NAME,
+  RDS_DB_NAME_DRAGON_API,
   RDS_USERNAME,
   RDS_PASSWORD,
   {

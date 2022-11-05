@@ -113,6 +113,7 @@ const DragonModel = sequelize.define<DragonI>(
       { unique: false, fields: ['class_id', 'heads'] },
       { unique: false, fields: ['class_id', 'heads', 'species_id'] },
     ],
+    tableName: 'dragon',
   }
 );
 

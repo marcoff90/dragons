@@ -4,7 +4,7 @@ const { DataTypes, DATE } = require('sequelize');
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('dragons', {
+    await queryInterface.createTable('dragon', {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -83,12 +83,19 @@ module.exports = {
         defaultValue: null,
         field: 'height_image',
       },
+      price: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+        defaultValue: (
+          Math.floor(Math.random() * (100000 - 50000 + 1)) + 50000
+        ).toFixed(2),
+      },
       classId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         field: 'class_id',
         references: {
-          model: 'classes',
+          model: 'class',
           key: 'id',
         },
       },
@@ -103,11 +110,11 @@ module.exports = {
       },
     });
 
-    await queryInterface.addIndex('dragons', ['class_id']);
-    await queryInterface.addIndex('dragons', ['species_id']);
-    await queryInterface.addIndex('dragons', ['heads']);
-    await queryInterface.addIndex('dragons', ['class_id', 'heads']);
-    await queryInterface.addIndex('dragons', [
+    await queryInterface.addIndex('dragon', ['class_id']);
+    await queryInterface.addIndex('dragon', ['species_id']);
+    await queryInterface.addIndex('dragon', ['heads']);
+    await queryInterface.addIndex('dragon', ['class_id', 'heads']);
+    await queryInterface.addIndex('dragon', [
       'class_id',
       'heads',
       'species_id',
@@ -115,6 +122,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('dragons');
+    await queryInterface.dropTable('dragon');
   },
 };
