@@ -7,7 +7,7 @@ const generateToken = (user: UserI): string => {
     return null;
   }
 
-  const payload: JwtPayload = (({ id, email }) => ({ id, email }))(user);
+  const payload: JwtPayload = { id: user.id };
 
   const signInOption: SignOptions = {
     algorithm: 'HS256',

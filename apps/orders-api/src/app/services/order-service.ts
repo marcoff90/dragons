@@ -1,6 +1,7 @@
 import { LimitOffset, OrderI, OrderItemI } from '@dragons/api-interfaces';
 import OrderRepository from '../repositories/order-repository';
 import OrderItemRepository from '../repositories/order-item-repository';
+import logger from '@dragons/util-logger';
 
 const createOrder = async (
   userId: number,
@@ -12,9 +13,9 @@ const createOrder = async (
 
   const order = await OrderRepository.createOrder({ userId, totalPrice });
   orderItems.forEach((item) => (item.orderId = order.id));
-
+  logger.info(`Order ${order.id} successfully created`);
   await OrderItemRepository.createManyItems(orderItems);
-  return await OrderRepository.findById(order.id);
+  return await OrderRepository.findByIdAndUserId(order.id, order.userId);
 };
 
 const findAllOrdersByUserId = async (
@@ -24,12 +25,12 @@ const findAllOrdersByUserId = async (
   return await OrderRepository.findAllOrdersByUserId(userId, limits);
 };
 
-const findById = async (id: number): Promise<OrderI> => {
-  return await OrderRepository.findById(id);
+const findById = async (id: number, userId: number): Promise<OrderI> => {
+  return await OrderRepository.findByIdAndUserId(id, userId);
 };
 
 export default {
   createOrder,
   findAllOrdersByUserId,
-  findById
+  findById,
 };

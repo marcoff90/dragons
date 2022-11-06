@@ -1,4 +1,8 @@
-import { ApolloGateway, IntrospectAndCompose } from '@apollo/gateway';
+import {
+  ApolloGateway,
+  IntrospectAndCompose,
+  RemoteGraphQLDataSource,
+} from '@apollo/gateway';
 import { ApolloServer } from 'apollo-server-express';
 import logger from '@dragons/util-logger';
 
@@ -10,6 +14,17 @@ const gateway = new ApolloGateway({
       { name: 'orders', url: 'http://localhost:4003/graphql' },
     ],
   }),
+  buildService({ url }) {
+    return new RemoteGraphQLDataSource({
+      url,
+      willSendRequest({ request, context }) {
+        request.http.headers.set(
+          'user',
+          context.user ? JSON.stringify(context.user) : null
+        );
+      },
+    });
+  },
 });
 
 export const server = new ApolloServer({
@@ -17,5 +32,9 @@ export const server = new ApolloServer({
   formatError: (error) => {
     logger.error(error);
     return new Error(error.message);
+  },
+  context: ({ req }) => {
+    const user = req['user'] || null;
+    return { user };
   },
 });

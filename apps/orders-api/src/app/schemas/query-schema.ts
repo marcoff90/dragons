@@ -1,10 +1,6 @@
 import { gql } from 'apollo-server-express';
 
 export const querySchema = gql(`
-  input allOrders {
-    userId: Int!
-  }
-
   input orderById {
     id: Int!
   }
@@ -15,7 +11,7 @@ export const querySchema = gql(`
   }
 
   extend type Query {
-    orders(input: allOrders!, limits: LimitOffset): [Order]
+    orders(limits: LimitOffset): [Order]
     order(input: orderById!): Order
   }
 `);

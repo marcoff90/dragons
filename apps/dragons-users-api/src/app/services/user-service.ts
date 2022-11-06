@@ -36,7 +36,7 @@ const signIn = async (user: UserI): Promise<UserResponseI> => {
   }
 
   const jwt = generateToken(userInDb);
-  return convertUserToUserResponse(user, jwt);
+  return convertUserToUserResponse(userInDb, jwt);
 };
 
 const findById = async (id: number): Promise<UserResponseI> => {

@@ -1,15 +1,15 @@
 export const orderResolver = {
   Query: {
-    orders: async (_, { input, limits }, { OrderService }) => {
-      return await OrderService.findAllOrdersByUserId(input.userId, limits);
+    orders: async (_, { limits }, { OrderService, user }) => {
+      return await OrderService.findAllOrdersByUserId(user.id, limits);
     },
-    order: async (_, {input}, {OrderService}) => {
-      return await OrderService.findById(input.id);
-    }
+    order: async (_, { input }, { OrderService, user }) => {
+      return await OrderService.findById(input.id, user.id);
+    },
   },
   Mutation: {
-    createOrder: async (_, { input }, { OrderService }) => {
-      return await OrderService.createOrder(input.userId, input.items);
+    createOrder: async (_, { input }, { OrderService, user }) => {
+      return await OrderService.createOrder(user.id, input.items);
     },
   },
   Order: {

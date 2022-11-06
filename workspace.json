@@ -3,10 +3,10 @@
   "version": 2,
   "projects": {
     "api-interfaces": "libs/api-interfaces",
+    "auth-middleware": "libs/auth-middleware",
     "dragons-api": "apps/dragons-api",
     "dragons-users-api": "apps/dragons-users-api",
     "gateway": "apps/gateway",
-    "get-a-dragon": "apps/get-a-dragon",
     "orders-api": "apps/orders-api",
     "util-logger": "libs/util-logger"
   }

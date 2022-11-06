@@ -24,9 +24,12 @@ const findAllOrdersByUserId = async (
   });
 };
 
-const findById = async (id: number): Promise<OrderI> => {
+const findByIdAndUserId = async (
+  id: number,
+  userId: number
+): Promise<OrderI> => {
   return await OrderModel.findOne({
-    where: { id },
+    where: { id, userId },
     include: [{ model: OrderItemModel, as: 'orderItems' }],
   });
 };
@@ -34,5 +37,5 @@ const findById = async (id: number): Promise<OrderI> => {
 export default {
   createOrder,
   findAllOrdersByUserId,
-  findById,
+  findByIdAndUserId,
 };

@@ -5,8 +5,10 @@ import { syncSequelize } from './app/config/sequelize-sync';
 import { server } from './app/config/apollo-server';
 
 const app: Express = express();
-const port = process.env.port || 3333;
-
+const port = process.env.PORT_DRAGON_API || 3333;
+/**
+ * access to images of dragons, teams, classes -> links stored in db
+ */
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 (async () => {
@@ -14,10 +16,10 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 })();
 
 server.start().then(() => {
-  logger.info(`Apollo Server started`);
+  logger.info(`Dragons Server started`);
   server.applyMiddleware({ app, path: '/graphql' });
 });
 
 app.listen(port, () => {
-  logger.info(`Apollo Server listening at http://localhost:${port}/graphql`);
+  logger.info(`Dragons Server listening at http://localhost:${port}/graphql`);
 });
