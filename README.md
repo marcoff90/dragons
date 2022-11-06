@@ -43,6 +43,9 @@ ABOUT BACKEND
           - dragon id
           - amount
           - price of dragon
+  - gateway
+    - apollo gateway directing the traffic to corresponding services according to schemas
+    - port 4000
 
 - to init the project
   - npm install
