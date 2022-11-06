@@ -2,8 +2,12 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
-    "get-a-dragon": "apps/get-a-dragon"
+    "auth-middleware": "libs/auth-middleware",
+    "dragons-api": "apps/dragons-api",
+    "dragons-users-api": "apps/dragons-users-api",
+    "gateway": "apps/gateway",
+    "orders-api": "apps/orders-api",
+    "util-logger": "libs/util-logger"
   }
 }

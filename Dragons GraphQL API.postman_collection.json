@@ -1,0 +1,186 @@
+{
+  "info": {
+    "_postman_id": "6b16b157-09b8-469c-b2ee-de73f57eb93e",
+    "name": "Dragons GraphQL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19476072"
+  },
+  "item": [
+    {
+      "name": "Get Dragons",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "{\n    dragons {\n        id\n        name\n        heads\n        attack\n        speed\n        armor\n        firepower\n        venom\n        jawStrength\n        stealth\n        intro\n        about\n        summary\n        profileImg\n        heightImg\n        price\n        class {\n            id\n            image\n            name\n        }\n        species {\n            id\n            species\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Dragon",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "{\n    dragon(input: {name: \"Toothless\"}) {\n        id\n        name\n        heads\n        attack\n        speed\n        armor\n        firepower\n        venom\n        jawStrength\n        stealth\n        intro\n        about\n        summary\n        profileImg\n        heightImg\n        price\n        class {\n            id\n            image\n            name\n        }\n        species {\n            id\n            species\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dragon Date filters",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "{\n    distinctHeads {\n        heads\n    }\n    teams {\n        id\n        image\n    }\n    species {\n        id\n        species\n    }\n    classes {\n        id\n        name\n        image\n    }\n    \n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sign In",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation {\n    signIn(input: {\n        email: \"user1@example.com\",\n         password:\"Password123!\"\n         }\n        ) {\n        id\n        email\n        token\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sign Up",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation {\n    signUp(input: {\n        email: \"user1@example.com\",\n         password:\"Password123!\"\n         passwordConfirmation: \"Password123!\"\n         }\n        ) {\n        id\n        email\n        token\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Order - with auth",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation {\n    createOrder(input: {\n        items: {\n           dragonId: 1\n           amount: 2\n           itemPrice: 9999 \n        }\n    }) {\n        id\n        user {\n            id\n            email\n        }\n        orderItems {\n            dragon {\n                name\n                price\n                mainImg\n            }\n            amount\n        }\n        totalPrice\n        createdAt\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Orders - wih auth",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "{\n    orders {\n        id\n        user {\n            id\n            email\n        }\n        orderItems {\n            dragon {\n                name\n                price\n                mainImg\n            }\n            amount\n        }\n        totalPrice\n        createdAt\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Order- wih auth",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "{\n    order(input: {id: 1}) {\n        id\n        user {\n            id\n            email\n        }\n        orderItems {\n            dragon {\n                name\n                price\n                mainImg\n            }\n            amount\n        }\n        totalPrice\n        createdAt\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
